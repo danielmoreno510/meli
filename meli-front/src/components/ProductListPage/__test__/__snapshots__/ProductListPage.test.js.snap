@@ -30,9 +30,7 @@ exports[`ProductListPage component WHEN the ProductList component is render THEN
       >
         ARS 123,456.00
       </div>
-      <div>
-        Mar de la plata
-      </div>
+      <div />
     </div>
     <div
       className="result-condition"
@@ -56,7 +54,10 @@ exports[`ProductListPage component WHEN the ProductListPage component is render 
         "installments": Object {
           "currency_id": "ARS",
         },
-        "price": "123456",
+        "price": Object {
+          "amount": "123456",
+          "currency": "ARS",
+        },
         "title": "iPhone 11 64 Gb Blanco",
       },
     ]

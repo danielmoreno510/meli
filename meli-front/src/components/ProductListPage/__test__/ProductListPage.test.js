@@ -24,7 +24,7 @@ describe("ProductListPage component", () => {
         id: "MLA916044386",
         title: "iPhone 11 64 Gb Blanco",
         installments: { currency_id: "ARS" },
-        price: "123456",
+        price: { currency: "ARS", amount: "123456" },
         address: { city_name: "Mar de la plata" },
       },
     ],
@@ -71,5 +71,4 @@ describe("ProductListPage component", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
-
 });

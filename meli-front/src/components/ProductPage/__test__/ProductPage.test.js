@@ -12,7 +12,6 @@ jest.mock("react-router-dom", () => {
   };
 });
 
-
 describe("ProductPage component", () => {
   const testProps = {
     isFetchingProduct: false,
@@ -20,10 +19,9 @@ describe("ProductPage component", () => {
       id: "MLA916044386",
       thumbnail: "image.png",
       title: "iPhone 11 64 Gb Blanco",
-      price: "123456",
-      currency_id: "ARS",
+      price: { currency: "ARS", amount: "123456" },
     },
-    getProduct: jest.fn()
+    getProduct: jest.fn(),
   };
 
   describe("WHEN the ProductPage component is render", () => {
@@ -33,7 +31,10 @@ describe("ProductPage component", () => {
       expect(wrapper).toMatchSnapshot();
     });
 
-    const product = wrapper.find("ComponentWithLoadingIndicator").dive().find("Product")
+    const product = wrapper
+      .find("ComponentWithLoadingIndicator")
+      .dive()
+      .find("Product");
 
     it("THEN should exist the ProductPage component", () => {
       expect(product.exists()).toBeTruthy();

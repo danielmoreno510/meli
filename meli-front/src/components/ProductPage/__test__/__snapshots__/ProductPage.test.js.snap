@@ -8,7 +8,6 @@ exports[`ProductPage component WHEN the Product component is render THEN should 
     <img
       alt="iPhone 11 64 Gb Blanco"
       className="product-image"
-      src="image.png"
     />
     <div
       className="product-section"
@@ -52,9 +51,11 @@ exports[`ProductPage component WHEN the ProductPage component is render THEN sho
   isFetching={false}
   product={
     Object {
-      "currency_id": "ARS",
       "id": "MLA916044386",
-      "price": "123456",
+      "price": Object {
+        "amount": "123456",
+        "currency": "ARS",
+      },
       "thumbnail": "image.png",
       "title": "iPhone 11 64 Gb Blanco",
     }

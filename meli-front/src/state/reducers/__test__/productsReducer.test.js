@@ -32,8 +32,8 @@ describe("Products reducer", () => {
           productsReducer(
             initialState,
             putProductList({
-              filters: [{ values: [{ name: "test" }] }],
-              results: [],
+              categories: ["test"],
+              items: [],
             })
           )
         ).toEqual({
@@ -63,12 +63,12 @@ describe("Products reducer", () => {
         expect(
           productsReducer(
             initialState,
-            putProduct({ product: {}, description: {} })
+            putProduct({ item: {}})
           )
         ).toEqual({
           ...initialState,
           breadcrumbs: [],
-          product: { description: {}, product:{} },
+          product: {},
           isFetchingProduct: false,
           isFetchingProductList: false,
         });
