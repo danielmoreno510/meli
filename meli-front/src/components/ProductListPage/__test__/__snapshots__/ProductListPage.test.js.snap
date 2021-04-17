@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductListPage component WHEN the ProductList component is render THEN should display ProductList component 1`] = `
+<div
+  className="result-product"
+  data-testid="result-product"
+  key="MLA916044386"
+>
+  <div>
+    <img
+      alt="iPhone 11 64 Gb Blanco"
+      className="result-image"
+      data-testid="result-image"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className="container-result"
+  >
+    <h1
+      className="result-title"
+    >
+      iPhone 11 64 Gb Blanco
+    </h1>
+    <div
+      className="content-result"
+    >
+      <div
+        className="result-amount"
+      >
+        ARS 123,456.00
+      </div>
+      <div>
+        Mar de la plata
+      </div>
+    </div>
+    <div
+      className="result-condition"
+    />
+  </div>
+</div>
+`;
+
+exports[`ProductListPage component WHEN the ProductList component is render without props THEN should display ProductList component 1`] = `<div />`;
+
+exports[`ProductListPage component WHEN the ProductListPage component is render THEN should display ProductListPage component 1`] = `
+<ComponentWithLoadingIndicator
+  isFetching={false}
+  productList={
+    Array [
+      Object {
+        "address": Object {
+          "city_name": "Mar de la plata",
+        },
+        "id": "MLA916044386",
+        "installments": Object {
+          "currency_id": "ARS",
+        },
+        "price": "123456",
+        "title": "iPhone 11 64 Gb Blanco",
+      },
+    ]
+  }
+/>
+`;

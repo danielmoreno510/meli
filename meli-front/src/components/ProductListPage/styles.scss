@@ -1,0 +1,38 @@
+.result-product {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.result-image {
+  width: 140px;
+  margin-right: 24px;
+  cursor: pointer;
+}
+
+.container-result {
+  flex: 1;
+}
+
+.result-title {
+  font-size: 22px;
+  font-weight: 300;
+  margin: 0px !important;
+}
+
+.content-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-amount {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 14px;
+}
+
+.result-condition {
+  margin-top: 20px;
+}

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumbs component WHEN the Breadcrumbs component is render THEN should display Breadcrumbs component 1`] = `
+<div
+  className="breadcrumbs"
+>
+  <div
+    className="breadcrumbContainer"
+    key="test"
+  >
+    <div>
+      test
+    </div>
+    <div>
+         &gt;
+    </div>
+  </div>
+  <div
+    className="breadcrumbContainer"
+    key="test"
+  >
+    <div>
+      test
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Breadcrumbs component WHEN the Breadcrumbs component is render without props THEN should display Breadcrumbs component 1`] = `<div />`;

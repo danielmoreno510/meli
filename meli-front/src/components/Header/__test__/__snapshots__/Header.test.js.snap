@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component WHEN the component is render THEN should display Header component 1`] = `
+<div
+  className="header-container"
+>
+  <img
+    alt="logo"
+    className="header-logo"
+    data-testid="header-logo"
+    onClick={[Function]}
+    src="logo.png"
+  />
+  <div
+    className="header-form"
+  >
+    <input
+      className="header-input"
+      data-testid="header-input"
+      onChange={[Function]}
+      placeholder="Buscar productos, marcas y más…"
+      type="text"
+      value=""
+    />
+    <button
+      className="header-button"
+      data-testid="search-button"
+      onClick={[Function]}
+      type="submit"
+    >
+      <img
+        alt="magnifying glass"
+        className="header-icon"
+        src="magnifying_glass.png"
+      />
+    </button>
+  </div>
+</div>
+`;

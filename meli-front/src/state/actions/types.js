@@ -1,0 +1,4 @@
+export const FETCH_PRODUCT_LIST = "FETCH_PRODUCT_LIST";
+export const PUT_PRODUCT_LIST = "PUT_PRODUCT_LIST";
+export const FETCH_PRODUCT = "FETCH_PRODUCT";
+export const PUT_PRODUCT = "PUT_PRODUCT";

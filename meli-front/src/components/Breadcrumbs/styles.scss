@@ -1,0 +1,12 @@
+@import '../../index';
+
+.breadcrumbs{
+  background-color: $background-color;
+  padding: 18px 160px 0px 160px;
+  display: flex;
+}
+
+.breadcrumbContainer{
+  display: flex;
+  margin-right: 14px;
+}

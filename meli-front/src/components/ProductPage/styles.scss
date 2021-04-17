@@ -1,0 +1,55 @@
+@import '../../index';
+
+.product-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-image {
+  width: 400px;
+}
+
+.product-section {
+  width: 300px;
+}
+
+.product-condition {
+  font-size: 22px;
+}
+
+.product-title {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0px;
+  margin-top: 6px;
+}
+
+.product-amount {
+  font-size: 42px;
+  font-weight: 300;
+  margin-top: 12px;
+}
+
+.product-button {
+  width: 100%;
+  height: 56px;
+  background-color: $button-color;
+  border-radius: 6px;
+  color: $layout-color;
+  font-size: 32px;
+  text-align: center;
+  padding-top: 8px;
+  margin-top: 32px;
+}
+
+.product-description-title{
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0px;
+  margin-top: 80px;
+}
+
+.product-description {
+  margin-top: 20px;
+  width: 60%;
+}
