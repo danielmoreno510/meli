@@ -32,13 +32,13 @@ export const Product = ({ product }) => (
 
 const ProductWithLoadingIndicator = WithLoadingIndicator(Product);
 
-const ProductPage = ({ product, isFetchingProduct, getProduct }) => {
+const ProductPage = ({ selectedProduct, product, isFetchingProduct, getProduct }) => {
   const { pathname } = useLocation();
   const id = pathname.replace("/items/", "");
 
   useEffect(() => {
-    getProduct(id);
-  }, []);
+    !selectedProduct && getProduct(id);
+  }, [id]);
 
   return (
     <ProductWithLoadingIndicator

@@ -28,6 +28,7 @@ describe("ProductListPage component", () => {
         address: { city_name: "Mar de la plata" },
       },
     ],
+    getProduct: jest.fn()
   };
 
   describe("WHEN the ProductListPage component is render", () => {

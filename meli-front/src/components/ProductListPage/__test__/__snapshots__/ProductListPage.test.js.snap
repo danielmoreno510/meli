@@ -43,6 +43,7 @@ exports[`ProductListPage component WHEN the ProductList component is render with
 
 exports[`ProductListPage component WHEN the ProductListPage component is render THEN should display ProductListPage component 1`] = `
 <ComponentWithLoadingIndicator
+  getProduct={[MockFunction]}
   isFetching={false}
   productList={
     Array [

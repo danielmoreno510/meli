@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import queryString from "query-string";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import logo from "../../assets/images/logo.png";
@@ -8,17 +7,8 @@ import magnifying_glass from "../../assets/images/magnifying_glass.png";
 import "./styles.scss";
 
 const Header = ({ getProductList }) => {
-  const location = useLocation();
-  const value = queryString.parse(location.search);
   const history = useHistory();
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    if (value.search) {
-      setSearch(value.search);
-      getProductList(value.search);
-    }
-  }, []);
 
   return (
     <div className="header-container">

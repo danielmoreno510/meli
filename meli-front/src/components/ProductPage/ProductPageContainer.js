@@ -3,8 +3,9 @@ import { fetchProduct } from "../../state/actions";
 import { StoreService } from "../../state/StoreService.js";
 
 export const mapStateToProps = (state) => ({
+  selectedProduct: state.products.selectedProduct,
   product: state.products.product,
-  isFetchingProduct: state.products.isFetchingProduct,
+  isFetchingProduct: state.products.isFetchingProduct
 });
 export const mapDispatchToProps = (dispatch) => {
   return {

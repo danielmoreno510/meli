@@ -19,6 +19,7 @@ describe("Products reducer", () => {
         expect(productsReducer(initialState, fetchProductList())).toEqual({
           ...initialState,
           breadcrumbs: [],
+          hasSearch: true,
           product: {},
           isFetchingProduct: false,
           isFetchingProductList: true,
@@ -51,6 +52,7 @@ describe("Products reducer", () => {
         expect(productsReducer(initialState, fetchProduct())).toEqual({
           ...initialState,
           breadcrumbs: [],
+          selectedProduct: true,
           product: {},
           isFetchingProduct: true,
           isFetchingProductList: false,
