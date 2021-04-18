@@ -1,7 +1,6 @@
 {
-  "name": "meli",
-  "version": "0.1.0",
-  "private": true,
+  "name": "meli-front",
+  "version": "0.1.2",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
@@ -68,5 +67,9 @@
       "!src/reportWebVitals.js",
       "!src/App.js"
     ]
-  }
+  },
+  "main": "index.js",
+  "author": "Daniel Moreno",
+  "license": "ISC",
+  "description": ""
 }

@@ -36,3 +36,7 @@ To see the coverage, run the index.html file found in: `coverage/lcov-report/`
 
 
 ![alt text](https://raw.githubusercontent.com/danielmoreno510/meli/master/meli-front/src/assets/images/coverage.png)
+
+
+## Continuous integration (CI)
+This project has continuous integration through `GitHub Actions`, this is executed when push is executed on the master branch

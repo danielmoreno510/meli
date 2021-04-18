@@ -4,23 +4,59 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - master
 
 jobs:
-  build:
+  front:
     runs-on: ubuntu-latest
     steps:
-      - run: cd meli-front
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 12
-      - run: npm ci
-      - run: npm test
+      - name: Front
+        working-directory: ./meli-front
+        run: |
+          npm ci
+          
+  test-front:
+    needs: front
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Run server
+        working-directory: ./meli-back
+        run: |
+          npm ci
+          npm install
+          npm start &
+      - name: Setup and run tests
+        working-directory: ./meli-front
+        run: |
+          npm ci
+          npm test -- -u
+  
+  build-front:
+    needs: test-front
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Run build
+        working-directory: ./meli-front
+        run: |
+          npm ci
+          npm build
 
-  publish-npm:
-    needs: build
+  publish-npm-front:
+    needs: build-front
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -28,21 +64,53 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+      - name: Run publish
+        working-directory: ./meli-front
+        run: |
+          npm ci
+          npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-  publish-gpr:
-    needs: build
+  back:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
+      - name: Back
+        working-directory: ./meli-back
+        run: |
+          npm ci
+
+  build-back:
+    needs: back
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Run build
+        working-directory: ./meli-back
+        run: |
+          npm ci
+          npm build
+
+  publish-npm-back:
+    needs: build-back
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - name: Run publish
+        working-directory: ./meli-back
+        run: |
+          npm ci
+          npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

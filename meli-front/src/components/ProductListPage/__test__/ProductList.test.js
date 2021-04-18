@@ -16,7 +16,7 @@ jest.mock("react-router-dom", () => {
   };
 });
 
-describe("ProductListPage component", () => {
+describe("ProductList component", () => {
   const testProps = {
     productList: [
       {
