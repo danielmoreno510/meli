@@ -1,50 +1,12 @@
-import React, {useEffect} from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import {useEffect} from "react";
+import { useLocation } from "react-router-dom";
 import queryString from "query-string";
 import PropTypes from "prop-types";
 
-import { formatCurrency } from "../../utils/currencyUtils";
 import WithLoadingIndicator from "../WithLoading";
+import ProductList from "./ProductList"
 import "./styles.scss";
 
-export const ProductList = ({ productList, getProduct }) => {
-  const history = useHistory();
-
-  return productList ? (
-    productList.map((product) => (
-      <div
-        key={product.id}
-        className="result-product"
-        data-testid="result-product"
-      >
-        <div>
-          <img
-            className="result-image"
-            src={product.picture}
-            alt={product.title}
-            onClick={() => {
-              history.push(`/items/${product.id}`);
-              getProduct(product.id);
-            }}
-            data-testid="result-image"
-          />
-        </div>
-        <div className="container-result">
-          <h1 className="result-title">{product.title}</h1>
-          <div className="content-result">
-            <div className="result-amount">
-              {formatCurrency(product.price.currency, product.price.amount)}
-            </div>
-            <div>{product.city_name}</div>
-          </div>
-          <div className="result-condition">{product.condition}</div>
-        </div>
-      </div>
-    ))
-  ) : (
-    <div></div>
-  );
-};
 const ProductsWithLoadingIndicator = WithLoadingIndicator(ProductList);
 
 const ProductListPage = ({
@@ -59,7 +21,8 @@ const ProductListPage = ({
 
   useEffect(() => {
     !hasSearch && getProductList(value.search);
-  }, [value.search]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value.search, getProductList]);
 
   return (
     <ProductsWithLoadingIndicator
@@ -71,7 +34,11 @@ const ProductListPage = ({
 };
 
 ProductListPage.propTypes = {
+  hasSearch: PropTypes.bool,
   productList: PropTypes.array,
+  isFetchingProductList: PropTypes.bool,
+  getProductList: PropTypes.func,
+  getProduct: PropTypes.func
 };
 
 export default ProductListPage;

@@ -1,34 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import WithLoadingIndicator from "../WithLoading";
-import { formatCurrency } from "../../utils/currencyUtils";
+import Product from "./Product"
 import "./styles.scss";
-
-export const Product = ({ product }) => (
-  <div>
-    <div className="product-container">
-      <img
-        className="product-image"
-        src={product.picture}
-        alt={product.title}
-      />
-      <div className="product-section">
-        <div className="product-condition">
-          {product.condition} - {product.sold_quantity} vendidos
-        </div>
-        <h1 className="product-title">{product.title}</h1>
-        <div className="product-amount">
-          {formatCurrency(product.price.currency, product.price.amount)}
-        </div>
-        <div className="product-button">Comprar</div>
-      </div>
-    </div>
-    <h2 className="product-description-title">Descripcion del producto</h2>
-    <div className="product-description">{product.description}</div>
-  </div>
-);
 
 const ProductWithLoadingIndicator = WithLoadingIndicator(Product);
 
@@ -38,7 +14,8 @@ const ProductPage = ({ selectedProduct, product, isFetchingProduct, getProduct }
 
   useEffect(() => {
     !selectedProduct && getProduct(id);
-  }, [id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, getProduct]);
 
   return (
     <ProductWithLoadingIndicator
@@ -49,7 +26,10 @@ const ProductPage = ({ selectedProduct, product, isFetchingProduct, getProduct }
 };
 
 ProductPage.propTypes = {
-  productList: PropTypes.array,
+  selectedProduct: PropTypes.bool,
+  product: PropTypes.object,
+  isFetchingProduct: PropTypes.bool,
+  getProduct: PropTypes.func
 };
 
 export default ProductPage;

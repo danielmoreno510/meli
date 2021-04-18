@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -10,14 +10,20 @@ const Header = ({ getProductList }) => {
   const history = useHistory();
   const [search, setSearch] = useState("");
 
+  const goToHome = () => history.push(`/`);
+  const goToProductList = () => {
+    history.push(`/items?search=${search}`);
+    getProductList(search);
+  };
+
   return (
     <div className="header-container">
       <img
         className="header-logo"
         src={logo}
         alt="logo"
-        onClick={() => history.push(`/`)}
-        data-testid='header-logo'
+        data-testid="header-logo"
+        onClick={goToHome}
       />
       <div className="header-form">
         <input
@@ -26,16 +32,13 @@ const Header = ({ getProductList }) => {
           className="header-input"
           type="text"
           placeholder="Buscar productos, marcas y más…"
-          data-testid='header-input'
+          data-testid="header-input"
         />
         <button
-          data-testid='search-button'
+          data-testid="search-button"
           className="header-button"
           type="submit"
-          onClick={() => {
-            history.push(`/items?search=${search}`);
-            getProductList(search);
-          }}
+          onClick={goToProductList}
         >
           <img
             className="header-icon"

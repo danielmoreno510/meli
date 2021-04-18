@@ -1,29 +1,30 @@
-const { app, baseURL, author } = require("../constants");
 const fetch = require("node-fetch");
 
-app.get("/api/items/:id", async (req, res) => {
-  const id = req.params.id;
-  const response = await fetch(`${baseURL}items/${id}`);
-  const data = await response.json();
-  const descriptionPromise = await fetch(`${baseURL}items/${id}/description`);
-  const { plain_text: description } = await descriptionPromise.json();
+const { app, baseURL, author } = require("../constants");
 
-  const product = {
+app.get("/api/items/:id", async (req, response) => {
+  const { id } = req.params;
+  const urls = [`${baseURL}items/${id}`, `${baseURL}items/${id}/description`];
+
+  const requests = urls.map((url) => fetch(url).then((res) => res.json()));
+  const [product, { plain_text }] = await Promise.all(requests);
+
+  const item = {
     author,
     item: {
-      id: data.id,
-      title: data.title,
-      price: { currency: data.currency_id, amount: data.price },
-      picture: data.thumbnail,
-      condition: data.condition,
-      free_shipping: data.shipping.free_shipping,
-      sold_quantity: data.sold_quantity,
-      description,
+      id: product.id,
+      title: product.title,
+      price: { currency: product.currency_id, amount: product.price },
+      picture: product.thumbnail,
+      condition: product.condition,
+      free_shipping: product.shipping.free_shipping,
+      sold_quantity: product.sold_quantity,
+      description: plain_text,
     },
   };
 
-  res.header("Access-Control-Allow-Origin", "*");
-  res.json(product);
+  response.header("Access-Control-Allow-Origin", "*");
+  response.json(item);
 });
 
 module.exports = app;

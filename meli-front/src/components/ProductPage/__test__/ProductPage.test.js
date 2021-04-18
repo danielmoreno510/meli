@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import ProductPage, { Product } from "../ProductPage";
+import ProductPage from "../ProductPage";
 
 jest.mock("react-router-dom", () => {
   return {
@@ -38,14 +38,6 @@ describe("ProductPage component", () => {
 
     it("THEN should exist the ProductPage component", () => {
       expect(product.exists()).toBeTruthy();
-    });
-  });
-
-  describe("WHEN the Product component is render", () => {
-    const wrapper = shallow(<Product {...testProps} />);
-
-    it("THEN should display Product component", () => {
-      expect(wrapper).toMatchSnapshot();
     });
   });
 });

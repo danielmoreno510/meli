@@ -8,7 +8,7 @@ describe("Header container mapStateToProps() and mapDispatchToProps() tests", ()
 
     expect(mapStateToProps(mockState)).toEqual(props);
   });
-  it('should roll the dice again when button is clicked', () => {
+  it('THEN fetchProductList action should be called', () => {
     const dispatch = jest.fn();
 
     // For the `mapDispatchToProps`, call it directly but pass in

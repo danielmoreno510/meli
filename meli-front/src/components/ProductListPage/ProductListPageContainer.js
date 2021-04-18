@@ -8,7 +8,7 @@ export const mapStateToProps = (state) => ({
   hasSearch: state.products.hasSearch
 });
 
-const mapDispatchToProps = (dispatch) => {
+export const mapDispatchToProps = (dispatch) => {
   return {
     getProductList: (search) => {
       dispatch(fetchProductList(search));
