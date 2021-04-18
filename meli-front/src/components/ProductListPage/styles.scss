@@ -1,14 +1,18 @@
+@import "../../index";
+
 .result-product {
   display: flex;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #dddddd;
+  padding: $space-1;
+}
+
+.reuslt-image-container {
+  padding-right: $space-1;
 }
 
 .result-image {
-  width: 140px;
-  margin-right: 24px;
+  width: 180px;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .container-result {
@@ -16,23 +20,39 @@
 }
 
 .result-title {
-  font-size: 22px;
-  font-weight: 300;
+  font: {
+    size: 18px;
+    weight: 300;
+  }
   margin: 0px !important;
+  padding-top: $space-2;
+  color: $color-subtitle;
 }
 
 .content-result {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  padding-top: $space-1;
+  @media (max-width: $breakpoint-tablet) {
+    display: block !important;
+  }
 }
 
 .result-amount {
-  font-size: 24px;
-  font-weight: 500;
-  margin-top: 14px;
+  font: {
+    size: $text-3;
+    weight: 500;
+  }
+  color: $color-title;
+}
+
+.result-city {
+  font-size: $text-6;
+  padding-right: 120px;
+  color: $color-content;
 }
 
 .result-condition {
-  margin-top: 20px;
+  margin-top: 10px;
 }

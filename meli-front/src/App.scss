@@ -3,11 +3,10 @@
 .layout {
   background-color: $background-color;
   min-height: calc(100vh - 148px);
-  padding: 20px 160px 80px 160px;
+  padding: 0px 160px 80px 160px;
 }
 
 .container {
   background-color: $layout-color;
   min-height: calc(100vh - 148px);
-  padding: 28px;
 }
