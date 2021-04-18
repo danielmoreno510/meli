@@ -1,16 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductPage component WHEN the Product component is render THEN should display Product component 1`] = `
-<div>
+<div
+  className="product-container"
+>
   <div
-    className="product-container"
+    className="product-content"
   >
     <img
       alt="iPhone 11 64 Gb Blanco"
-      className="product-image"
+      className="product-image product-responsive"
     />
     <div
-      className="product-section"
+      className="product-section product-responsive"
     >
       <div
         className="product-condition"
@@ -26,12 +28,16 @@ exports[`ProductPage component WHEN the Product component is render THEN should 
       <div
         className="product-amount"
       >
-        ARS 123,456.00
+        $ 123,456
       </div>
       <div
         className="product-button"
       >
-        Comprar
+        <div
+          className="product-button-content"
+        >
+          Comprar
+        </div>
       </div>
     </div>
   </div>
@@ -41,7 +47,7 @@ exports[`ProductPage component WHEN the Product component is render THEN should 
     Descripcion del producto
   </h2>
   <div
-    className="product-description"
+    className="product-description product-responsive"
   />
 </div>
 `;

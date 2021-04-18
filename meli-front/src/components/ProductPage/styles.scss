@@ -1,12 +1,19 @@
-@import '../../index';
+@import "../../index";
 
 .product-container {
+  padding: $space-2;
+}
+
+.product-content {
   display: flex;
   justify-content: space-between;
+  @media (max-width: $breakpoint-tablet) {
+    display: block !important;
+  }
 }
 
 .product-image {
-  width: 400px;
+  width: 680px;
 }
 
 .product-section {
@@ -14,42 +21,64 @@
 }
 
 .product-condition {
-  font-size: 22px;
+  font-size: $text-5;
+  color: $color-subtitle;
 }
 
 .product-title {
-  font-size: 26px;
-  font-weight: 500;
+  font: {
+    size: $text-3;
+    weight: 500;
+  }
   margin: 0px;
-  margin-top: 6px;
+  margin-top: $space-1;
+  color: $color-title;
 }
 
 .product-amount {
-  font-size: 42px;
-  font-weight: 300;
-  margin-top: 12px;
+  font: {
+    size: $text-1;
+    weight: 40%;
+  }
+  padding-top: $space-2;
 }
 
 .product-button {
   width: 100%;
-  height: 56px;
+  height: 52px;
   background-color: $button-color;
   border-radius: 6px;
   color: $layout-color;
-  font-size: 32px;
+  font-size: $text-3;
   text-align: center;
-  padding-top: 8px;
-  margin-top: 32px;
+  margin-top: $space-2;
+  display: flex;
+  align-items: center;
 }
 
-.product-description-title{
-  font-size: 32px;
-  font-weight: 400;
+.product-button-content {
+  text-align: center;
+  width: 100%;
+}
+
+.product-description-title {
+  font: {
+    size: $text-2;
+    weight: 400;
+  }
   margin: 0px;
   margin-top: 80px;
 }
 
 .product-description {
-  margin-top: 20px;
+  margin-top: $space-2;
   width: 60%;
+  color: $color-content;
+  font-size: $text-4;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .product-responsive {
+    width: 100%;
+  }
 }

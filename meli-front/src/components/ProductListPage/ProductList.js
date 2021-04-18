@@ -17,7 +17,7 @@ const ProductList = ({ productList, getProduct }) => {
         className="result-product"
         data-testid="result-product"
       >
-        <div>
+        <div className="reuslt-image-container">
           <img
             className="result-image"
             src={product.picture}
@@ -27,13 +27,13 @@ const ProductList = ({ productList, getProduct }) => {
           />
         </div>
         <div className="container-result">
-          <h1 className="result-title">{product.title}</h1>
           <div className="content-result">
             <div className="result-amount">
               {formatCurrency(product.price.currency, product.price.amount)}
             </div>
-            <div>{product.city_name}</div>
+            <div className="result-city">{product.city_name}</div>
           </div>
+          <h1 className="result-title">{product.title}</h1>
           <div className="result-condition">{product.condition}</div>
         </div>
       </div>
@@ -44,8 +44,8 @@ const ProductList = ({ productList, getProduct }) => {
 };
 
 ProductList.propTypes = {
-    productList: PropTypes.array,
-    getProduct: PropTypes.func
-  };
+  productList: PropTypes.array,
+  getProduct: PropTypes.func,
+};
 
 export default ProductList;

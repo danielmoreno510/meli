@@ -10,7 +10,7 @@ This project was developed with react Js for the [front-end](https://github.com/
 
 #### Run:
 - `npm install`
-- `npm run dev`
+- `npm run start`
 The project will be executed in: http://localhost:4000/
 
 <br />
