@@ -2,6 +2,8 @@
 
 This project was developed with react Js for the [FrontEnd](https://github.com/danielmoreno510/meli/tree/master/meli-front) and nodeJs for the [BackEnd](https://github.com/danielmoreno510/meli/tree/master/meli-back)
 
+![alt text](https://raw.githubusercontent.com/danielmoreno510/meli/master/meli-front/src/assets/images/diagram.png)
+
 ## Run the project
 
 ### Back
