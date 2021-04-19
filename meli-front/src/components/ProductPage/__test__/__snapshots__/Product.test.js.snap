@@ -28,7 +28,7 @@ exports[`ProductPage component WHEN the Product component is render THEN should 
       <div
         className="product-amount"
       >
-        $ 123.456
+        $ 123,456
       </div>
       <div
         className="product-button"

@@ -25,7 +25,7 @@ exports[`ProductList component WHEN the ProductList component is render THEN sho
       <div
         className="result-amount"
       >
-        $ 123.456
+        $ 123,456
       </div>
       <div
         className="result-city"
