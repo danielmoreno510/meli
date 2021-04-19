@@ -20,8 +20,7 @@ jobs:
         working-directory: ./meli-front
         run: |
           npm ci
-          
-  test-front:
+  lint-front:
     needs: front
     runs-on: ubuntu-latest
     steps:
@@ -36,6 +35,26 @@ jobs:
           npm install
           npm start &
       - name: Run tests
+        working-directory: ./meli-front
+        run: |
+          npm ci
+          npm run lint
+          
+  test-front:
+    needs: lint-front
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Run server
+        working-directory: ./meli-back
+        run: |
+          npm ci
+          npm install
+          npm start &
+      - name: Run lint
         working-directory: ./meli-front
         run: |
           npm ci

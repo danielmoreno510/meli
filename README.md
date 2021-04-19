@@ -44,6 +44,7 @@ This project has continuous integration through `GitHub Actions`, this is execut
 ### Pipelines
 
 #### Front-end:
+- `lint`
 - `test`
 - `build`
 - `publish`
