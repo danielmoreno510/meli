@@ -35,7 +35,7 @@ jobs:
           npm ci
           npm install
           npm start &
-      - name: Setup and run tests
+      - name: Run tests
         working-directory: ./meli-front
         run: |
           npm ci
